@@ -1,3 +1,5 @@
+// this is brute force method
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -27,7 +29,7 @@ int checkInString(char *input,char c){
     }
     return 0;
 }
-int lengthOfLongestSubstring(char *input) {
+int lengthOfLongestSubstringByBruteForce(char *input) {
 
     
     int len = strlen(input);
