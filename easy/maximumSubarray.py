@@ -7,26 +7,54 @@ class Solution(object):
         maxSub = nums[0]
         sumSub = nums[0]
         sumTmp = nums[0]
+        sumArray =[]
         diff = nums[0]
+        '''
         for i in range(len(nums)):
-             
+            
             sumTmp = sumSub = nums[i]
 
             for j in range(i+1,len(nums)):
                 sumTmp = sumTmp + nums[j]
+               
                 if sumTmp > sumSub:
                     sumSub = sumTmp
             print("i = {} sumSub= {}".format(i,sumSub))
                 
             if sumSub > maxSub:
                 maxSub = sumSub
-        return maxSub
+        '''
+        if len(nums) == 0:
+            return 0
+        if len(nums) == 1:
+            return nums[0]
+        
+        sumArray = 0
+        maxSum = float('-inf')
+        
+        for i in nums:
+            
+            if i > (sumArray+i):
+                sumArray = i
+                print("> {} ".format(sumArray))
+            
+            elif i <= sumArray+i:
+
+                sumArray += i
+                print(sumArray)
+            if maxSum < sumArray:
+                maxSum = sumArray
+            
+        
+        
+        #print(sumArray)
+        return maxSum
 
 def main():
     a = Solution()
     array = [-2,1,-3,4,-1,2,1,-5,4]
-    array = [3,-1,5]
-    #array = [-1]
+    #array = [-1,5,-1,10]
+    array = [1,2]
     ans = a.maxSubArray(array)
     print(ans)
 
