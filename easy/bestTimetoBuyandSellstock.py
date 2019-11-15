@@ -12,17 +12,17 @@ class Solution(object):
 
         for x in range(1,len(prices)):
             
-            minVal = min(prices[x],minVal)
+            
             diff = prices[x] - minVal
-            #if diff <= 0:
-            #    minVal = prices[x]
+            if diff <= 0:
+                minVal = prices[x]
             maxNum = max(maxNum,diff)
-            #minVal = min(prices[x],prices[x]
+            
 
         return maxNum
 
         
-        
+        ### brute method
         '''
         for x in range(0,len(prices)-1):
             
