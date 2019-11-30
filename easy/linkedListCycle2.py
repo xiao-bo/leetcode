@@ -10,16 +10,19 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        #Runtime: 44 ms, faster than 32.86% of Python online submissions for Linked List Cycle.
-        #Memory Usage: 18.7 MB, less than 13.48% of Python online submissions for Linked List Cycle.
+        #Runtime: 40 ms, faster than 71.71% of Python online submissions for Linked List Cycle II.
+        #Memory Usage: 18.7 MB, less than 18.87% of Python online submissions for Linked List Cycle II.
+
+
         past = set()
-        while head!= None:
-            if head in past:
-                return True
-            past.add(head)
-            head = head.next
+        curr = head 
+        while curr!= None:
+            if curr in past:
+                return curr
+            past.add(curr)
+            curr = curr.next
             
-        return False
+        return None
     
 def main():
     a = Solution()
