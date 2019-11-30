@@ -13,12 +13,12 @@ class Solution(object):
         ##Runtime: 1004 ms, faster than 5.02% of Python online submissions for Linked List Cycle.
         #Memory Usage: 18.1 MB, less than 80.14% of Python online submissions for Linked List Cycle.
         
-        
-        past = []
+
+        past = set()
         while head!= None:
             if head in past:
                 return True
-            past.append(head)
+            past.add(head)
             head = head.next
             
         return False
