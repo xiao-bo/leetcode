@@ -9,21 +9,7 @@ class Solution(object):
         sumTmp = nums[0]
         sumArray =[]
         diff = nums[0]
-        '''
-        for i in range(len(nums)):
-            
-            sumTmp = sumSub = nums[i]
-
-            for j in range(i+1,len(nums)):
-                sumTmp = sumTmp + nums[j]
-               
-                if sumTmp > sumSub:
-                    sumSub = sumTmp
-            print("i = {} sumSub= {}".format(i,sumSub))
-                
-            if sumSub > maxSub:
-                maxSub = sumSub
-        '''
+        
         if len(nums) == 0:
             return 0
         if len(nums) == 1:
