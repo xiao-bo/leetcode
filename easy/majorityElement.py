@@ -4,13 +4,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        ## by dictionary 
+        #Runtime: 160 ms, faster than 43.58% of Python online submissions for Majority Element.
+        #Memory Usage: 14.5 MB, less than 7.32% of Python online submissions for Majority Element.
+        
         count = {}
-        for x in range(0,len(nums)):
-            if nums[x] not in count:
-                count[nums[x]] = 1
+        
+        
+        for x in nums:
+            if x not in count:
+                count[x] = 1
             else:
-                count[nums[x]] = count[nums[x]]+1
+                count[x] = count[x]+1
+        
         print(count)
+
+        
         ansValue = float('-inf')
         ansKey = ""
         for x in count:
@@ -19,8 +28,10 @@ class Solution(object):
                 ansValue = count[x]
                 ansKey = x
         print("key = {} value = {}".format(ansKey,ansValue))
-        #print(ansValue)
         return ansKey
+        
+
+
 
 def main():
     a = Solution()
