@@ -5,8 +5,8 @@ class Solution(object):
         :rtype: int
         """
         ## by dictionary 
-        #Runtime: 160 ms, faster than 43.58% of Python online submissions for Majority Element.
-        #Memory Usage: 14.5 MB, less than 7.32% of Python online submissions for Majority Element.
+        #Runtime: 148 ms, faster than 82.95% of Python online submissions for Majority Element.
+        #Memory Usage: 13.3 MB, less than 75.61% of Python online submissions for Majority Element.
         
         count = {}
         
