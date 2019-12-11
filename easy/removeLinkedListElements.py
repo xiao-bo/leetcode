@@ -14,8 +14,11 @@ class Solution(object):
         #Runtime: 52 ms, faster than 92.16% of Python online submissions for Remove Linked List Elements.
         #Memory Usage: 18.7 MB, less than 20.69% of Python online submissions for Remove Linked List Elements.
 
+        ## if no node
         if head is None:
             return None
+
+        ## if only 1 node
         if head.next is None:
             if head.val == val:
                 return None
