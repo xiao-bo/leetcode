@@ -11,20 +11,35 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        #Runtime: 20 ms, faster than 42.65% of Python online submissions for Invert Binary Tree.
-        #Memory Usage: 11.8 MB, less than 62.50% of Python online submissions for Invert Binary Tree.
-
-        tmp = None
+        
+        
+        #Runtime: 16 ms, faster than 74.14% of Python online submissions for Invert Binary Tree.
+        #Memory Usage: 11.9 MB, less than 25.00% of Python online submissions for Invert Binary Tree.
+        ## recursion method
+        '''
         if root == None:
             return None
-        else:
-            
-            tmp = root.right 
-            root.right = root.left
-            root.left = tmp 
+        else: 
+            root.right,root.left = root.left, root.right
             self.invertTree(root.left)
             self.invertTree(root.right)
             return root
+        '''
+
+        ## iteration method
+        ## Runtime: 12 ms, faster than 93.55% of Python online submissions for Invert Binary Tree.
+        ## Memory Usage: 11.8 MB, less than 57.50% of Python online submissions for Invert Binary Tree.
+        stack = [root]
+        
+        
+        while stack:
+            node = stack.pop()
+            if node:
+                node.right,node.left = node.left, node.right
+                stack.append(node.left)
+                stack.append(node.right)
+        return root
+
     def printLVR(self,root):
 
         if root == None:
@@ -65,7 +80,7 @@ def main():
     new = a.invertTree(root)
     print("==")
     a.printLVR(new)
-    
+
 
 
 
