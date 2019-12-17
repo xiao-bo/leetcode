@@ -15,10 +15,9 @@ class Solution(object):
         """
         ## Runtime: 88 ms, faster than 11.74% of Python online submissions for Lowest Common Ancestor of a Binary Search Tree.
         ## Memory Usage: 20.1 MB, less than 6.82% of Python online submissions for Lowest Common Ancestor of a Binary Search Tree.
-
-        
+        ## stupid method
+        '''
         pRoute = self.getRoute(root,p)
-
         qRoute = self.getRoute(root,q)
         #print("p route = {} q route = {}".format(pRoute,qRoute))
         maxIndex = 0
@@ -33,7 +32,20 @@ class Solution(object):
         targetNode = pRoute[maxIndex]
         #print(targetNode.val)
         return targetNode
-        
+        '''
+
+        ## make sense method
+        ## Runtime: 76 ms, faster than 32.22% of Python online submissions for Lowest Common Ancestor of a Binary Search Tree.
+        ## Memory Usage: 20.2 MB, less than 6.82% of Python online submissions for Lowest Common Ancestor of a Binary Search Tree.
+
+        find = root
+        while find:
+            if find.val > q.val and find.val > p.val:
+                find = find.left
+            elif find.val < q.val and find.val < p.val:
+                find = find.right
+            else:
+                return find
         
 
     def getRoute(self,root,target):
@@ -48,6 +60,7 @@ class Solution(object):
         route.append(find)
         
         return route
+
     def printLVR(self,root):
 
         if root == None:
@@ -92,8 +105,8 @@ def main():
 
     a = Solution()
     #a.printLVR(root)
-    ans = a.lowestCommonAncestor(root,node2,node5)
-    #print("ans = {}".format(ans))
+    ans = a.lowestCommonAncestor(root,node6,node7)
+    print("ans = {}".format(ans.val))
     
     
 
