@@ -28,6 +28,8 @@ class Solution(object):
         else:
             return False
         '''
+
+        
         ## hash table
         #Runtime: 124 ms, faster than 8.94% of Python online submissions for Contains Duplicate.
         #Memory Usage: 17.7 MB, less than 14.81% of Python online submissions for Contains Duplicate.
@@ -48,8 +50,7 @@ def main():
     nums =  [1,2,3,4]
     ans = a.containsDuplicate(nums)
     print(ans)
-    #print(bool(5)^bool(4))
-    #print(bool(3))
+
 
 
 if __name__ == '__main__':
