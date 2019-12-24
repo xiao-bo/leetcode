@@ -11,6 +11,7 @@ class Solution(object):
         :rtype: ListNode
         """
         ## iteration method by me
+        ## I spend 30 min to solve it 
         ## Runtime: 20 ms, faster than 50.14% of Python online submissions for Swap Nodes in Pairs.
         ## Memory Usage: 11.8 MB, less than 22.73% of Python online submissions for Swap Nodes in Pairs.
         if not head or not head.next:
