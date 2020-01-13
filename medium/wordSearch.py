@@ -1,7 +1,7 @@
 from typing import List
 
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: List[List[str]], word: str):
         start = []
         ans = []
 
@@ -21,7 +21,7 @@ class Solution:
         
         
         for point in start:
-            ans.append(self.recursion(board,word[1:],point,'0'))
+            ans.append(self.recursion(board,word[1:],point))
         #print(ans)
         if True in ans:
             return True
@@ -29,14 +29,14 @@ class Solution:
             return False
         
         
-    def recursion(self,board:List[List[str]],word:str,start:tuple,path:str) -> bool:
+    def recursion(self,board:List[List[str]],word:str,start:tuple) :
         row = start[0]
         col = start[1]
         ans = False
 
         ## save value into tmp
         tmp = board[row][col]
-        board[row][col] = False
+        board[row][col] = '#'
        
 
         if not word:
@@ -45,27 +45,27 @@ class Solution:
         ## check north
         #print("path = {} word = {} start = {} ans = {}".format(path,word,start,ans))
         if row > 0:
-            if board[row-1][col] == word[0] and path != 'n':
-                #print("path = {} word = {} start = {} go north".format(path,word,start))
-                ans = ans or self.recursion(board,word[1:],(row-1,col),'s')
+            if board[row-1][col] == word[0]:
+                
+                ans = ans or self.recursion(board,word[1:],(row-1,col))
         
         ## check south
         if row + 1 < len(board):
-            if board[row+1][col] == word[0] and path != 's':
-                #print("path = {},word = {} start = {} go south".format(path,word,start))
-                ans = ans or self.recursion(board,word[1:],(row+1,col),'n')
+            if board[row+1][col] == word[0] :
+                
+                ans = ans or self.recursion(board,word[1:],(row+1,col))
         
         ## check west
         if col > 0:
-            if board[row][col-1]== word[0] and path != 'w':
-                #print("path = {} word = {} start = {} go west".format(path,word,start))
-                ans = ans or self.recursion(board,word[1:],(row,col-1),'e')
+            if board[row][col-1]== word[0] :
+                
+                ans = ans or self.recursion(board,word[1:],(row,col-1))
         
         ## check east
         if col+1 < len(board[0]):
-            if board[row][col+1]== word[0] and path != 'e':
-                #print("path = {} word = {} start = {} go east".format(path,word,start))
-                ans = ans or self.recursion(board,word[1:],(row,col+1),'w')
+            if board[row][col+1]== word[0]:
+                
+                ans = ans or self.recursion(board,word[1:],(row,col+1))
         
         ## recovery value 
         board[row][col] = tmp        
@@ -84,8 +84,8 @@ def test():
               ['A','D','E','E']
             ]
         ans = a.exist(board,testCase[x])
-        #print(testAns[x])
-        #print(ans)
+        print(testAns[x])
+        print(ans)
         if ans != testAns[x]:
             print("False on {}".format(testCase[x]))
             return False
@@ -131,7 +131,7 @@ def main():
     #word = 'ABCE'
     #word = ''
     print(a.exist(board,word))
-    #print(test())
+    print(test())
 
 if __name__ == '__main__':
     main()
