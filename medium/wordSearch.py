@@ -3,12 +3,10 @@ from typing import List
 class Solution:
     def exist(self, board: List[List[str]], word: str):
         start = []
-        ans = []
-
-        ## my method
-        ## Runtime: 264 ms, faster than 95.72% of Python3 online submissions for Word Search.
-        ## Memory Usage: 14 MB, less than 95.74% of Python3 online submissions for Word Search.
         
+        ## my method
+        ## Runtime: 272 ms, faster than 95.52% of Python3 online submissions for Word Search.
+        ## Memory Usage: 13.7 MB, less than 100.00% of Python3 online submissions for Word Search.
         if not word:
             return False
         
@@ -21,12 +19,10 @@ class Solution:
         
         
         for point in start:
-            ans.append(self.recursion(board,word[1:],point))
-        #print(ans)
-        if True in ans:
-            return True
-        else:
-            return False
+            if self.recursion(board,word[1:],point):
+                return True
+        return False
+        
         
         
     def recursion(self,board:List[List[str]],word:str,start:tuple) :
