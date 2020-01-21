@@ -8,18 +8,20 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: TreeNode):
-        tree = self.LVR(root)
+        
         #print(tree)
         ## used inorder to check number sequence is small to large
         ## Runtime: 52 ms, faster than 14.29% of Python3 online submissions for Validate Binary Search Tree.
         ## Memory Usage: 15.4 MB, less than 100.00% of Python3 online submissions for Validate Binary Search Tree.
-        
+        tree = self.LVR(root)
+        '''
         for x in range(0,len(tree)-1):
             if tree[x] >= tree[x+1]:
                 
                 return False
         return True
-        
+        '''
+
 
 
 
