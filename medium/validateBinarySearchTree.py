@@ -31,28 +31,20 @@ class Solution:
         return self.check(root,float('-inf'),float('inf'))
 
     def check(self,root:TreeNode,lowerBound:int,upperBound:int):
-        print("root = {} lowerBound = {} upperBound = {}".format(root.val,lowerBound,upperBound))
-        if root.val >= upperBound:
-
-            return False
-        if root.val <= lowerBound:
-            return False
-        if root.left:
-            if root.left.val >= root.val:
-                return False
-            
-            ans = self.check(root.left,lowerBound,root.val)
-            if not ans:
+        if not root:
+            return True
+        if root:
+            print("root = {} lowerBound = {} upperBound = {}".format(root.val,lowerBound,upperBound))
+            if root.val >= upperBound or root.val <= lowerBound:
                 return False
 
-        if root.right:
-            if root.right.val <= root.val:
+            if not self.check(root.left,lowerBound,root.val):
                 return False
-            
-            ans = self.check(root.right,root.val,upperBound)
-            if not ans:
+
+            if not self.check(root.right,root.val,upperBound):
                 return False
-        return True
+            return True
+
 
     def LVR(self,root:TreeNode):
         res = []
@@ -72,9 +64,9 @@ class Solution:
 def main():
     ## case 1
     
-    root = TreeNode(-1)
-    node1 = TreeNode(-2)
-    node2 = TreeNode(0)
+    root = TreeNode(2)
+    node1 = TreeNode(1)
+    node2 = TreeNode(3)
     root.left = node1
     root.right = node2
 
