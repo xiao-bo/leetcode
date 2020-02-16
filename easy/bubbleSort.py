@@ -2,18 +2,25 @@ def bubbleSort(source):
     length = len(source)
     print(length)
     for i in range(0,length):
+        flag = 0
         for j in range(0,length-1-i):
+            ## i mean tail i is max.
             if source[j] > source[j+1]:
                 tmp = source[j]
                 source[j] = source[j+1]
                 source[j+1] = tmp
-            print("j = {} j+1 = {} source = {}".format(j,j+1,source))
-            
+                flag = -1 
+            print("i = {} j = {} j+1 = {} source = {} flag = {}".format(i,j,j+1,source,flag))
+        if flag == -1:
+            flag = 0
+        elif flag == 0:
+            ## if no swap , then break
+            break
     
     print(source)
 
 def main():
-    source = [3,4,2,1]
+    source = [5,3,2,1,6,4]
     bubbleSort(source)
 
 
