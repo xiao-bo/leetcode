@@ -26,56 +26,80 @@ class Solution(object):
         return len(longest)
         '''
 
-        ## Runtime: 564 ms, faster than 11.20% of Python online submissions for Longest Substring Without Repeating Characters.
-        ##Memory Usage: 12.1 MB, less than 59.38% of Python online submissions for Longest Substring Without Repeating Characters.
+        #Runtime: 88 ms, faster than 26.35% of Python online submissions for Longest Substring Without Repeating Characters.
+        #Memory Usage: 12.2 MB, less than 40.63% of Python online submissions for Longest Substring Without Repeating Characters.
 
+        ## slide window
+        '''
         if not s:
             return 0
         longest = s[0]
-        i = 0
+        left = 0
         flag = 0
-        j = i
+        right = left
         current = ''
         index = 0
-        while i < len(s):
+        while left < len(s) and right < len(s):
             
-            #current = ''
-            #j = i
-            print("i = {} j = {}".format(i,j))
-            while j < len(s):
-                if s[j] not in current:
-                    current = current + s[j]
-                else:
-                    break
-                print('i = {} j = {} current = {}'.format(i,j, current))            
-                j = j + 1
+            
+            print("left = {} right = {}".format(left,right))
+            
+            if s[right] not in current:
+                current = current + s[right]
+                right = right + 1
+            else:
                 
-
+                c = s[right]
+                index = current.find(c,left)
+                current = current[index+1:]
+                left = index + 1
+            print('left = {} right = {} current = {}'.format(left,right, current))            
             if len(current) > len(longest):
                 longest = current 
-            if j < len(s):
-                c = s[j]
-                index = current.find(c,i)
-                current = current[index+1:]
-                print('index = {} current = {}'.format(index,current))
                 
-                i = index + 1
-            else:
-                i = i + 1
-            #    break
-            #i = i+1
-            if len(longest) + i > len(s):
+
+            
+            if len(longest) + left > len(s):
                 break
-            flag = flag + 1
-            if flag > 10:
-                break
+           
             
         return longest
+        '''
+        ## optimize slide windows
+        ## Runtime: 64 ms, faster than 39.40% of Python online submissions for Longest Substring Without Repeating Characters.
+        ## Memory Usage: 12.1 MB, less than 56.25% of Python online submissions for Longest Substring Without Repeating Characters.
 
+        if not s:
+            return 0
+        longest = 0
+        left = 0
+        flag = 0
+        right = 0
+        current = set()
+        index = 0
+        while left < len(s) and right < len(s):
+            
+            
+            print("left = {} right = {} s[right] = {}".format(left,right,s[right]))
+            
+            if s[right] not in current:
+                current.add(s[right])
+                right = right + 1
+                longest = max(longest,right-left)
+                
+            else:
+                
+                current.remove(s[left])
+                left = left + 1
+            print('left = {} right = {} current = {}'.format(left,right, current))            
+            
+            
+        return longest
+        
 def main():
     a = Solution()
-    s = ''
-    s = '1234345'
+    #s = ''
+    s = '12343456'
     #s = 'anviaj'
     #s = "abcabcbb"
     #s = 'bbbbb'
