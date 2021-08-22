@@ -1,9 +1,10 @@
+import timeit
 def get_two_sum(nums, target):
 
     if len(nums) < 2:
         return []
     '''
-    # brute method after work 1 years
+    # Method1: brute method after work 1 years
     # Runtime: 4016 ms, faster than 24.64% of Python3 online submissions for Two Sum.
     # Memory Usage: 14.6 MB, less than 98.26% of Python3 online submissions for Two Sum.
     # time complexity = O(n^2)
@@ -13,7 +14,7 @@ def get_two_sum(nums, target):
                 return [x, y]
     '''
 
-    # list method by using index
+    # Method2: list method by using index
     # Runtime: 640 ms, faster than 37.63% of Python3 online submissions for Two Sum.
     # Memory Usage: 14.7 MB, less than 98.26% of Python3 online submissions for Two Sum.
     # time complexity = O(n^2)
@@ -25,9 +26,11 @@ def get_two_sum(nums, target):
             return [x, y_index]
     '''
     
-    # reduce list method time complexity 
+    # Method3: reduce list method time complexity 
     # Runtime: 640 ms, faster than 37.63% of Python3 online submissions for Two Sum.
     # Memory Usage: 14.9 MB, less than 65.62% of Python3 online submissions for Two Sum.
+    # time complexity = O(n^2)
+
     '''
     for x in range(0, len(nums)):
         if target - nums[x] in nums[x+1:]:
@@ -35,10 +38,10 @@ def get_two_sum(nums, target):
             return [x, y_index]
     '''
 
-    # using hash table
+    # Method4: using hash table
     # Runtime: 52 ms, faster than 96.07% of Python3 online submissions for Two Sum.
     # Memory Usage: 15.3 MB, less than 41.02% of Python3 online submissions for Two Sum.
-    
+    # time complexity = O(n)
     hash_table = {}
     for x in range(0,len(nums)):
         hash_table[nums[x]] = x 
@@ -54,17 +57,7 @@ def get_two_sum(nums, target):
                 return [x_index, y_index]
             except:
                 continue
-    '''
-    set_nums = set(nums)
-    for x in set_nums:
 
-        if target - x in set_nums:
-            print(x)
-            x_index = nums.index(x)
-            nums[x_index] = 'tmp'
-            y_index = nums.index(target - x)
-            return [x_index, y_index]
-    '''
 
 def find_index(nums, value, exclude_index):
     # find index exclude index
