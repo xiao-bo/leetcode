@@ -26,4 +26,10 @@ def test_get_two_sum():
 	expected_result = [0,1]
 	result = get_two_sum(nums, target)
 	assert result == expected_result
+
+	nums = [3,1,1,3]
+	target = 6
+	expected_result = [0,3]
+	result = get_two_sum(nums, target)
+	assert result == expected_result
 	
