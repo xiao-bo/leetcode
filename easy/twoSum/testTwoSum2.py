@@ -33,3 +33,9 @@ def test_get_two_sum():
 	result = get_two_sum(nums, target)
 	assert result == expected_result
 	
+	nums = [-3,4,3,90]
+	target = 0
+	expected_result = [0,2]
+	result = get_two_sum(nums, target)
+	assert result == expected_result
+	
