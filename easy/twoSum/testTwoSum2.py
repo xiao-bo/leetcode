@@ -1,5 +1,5 @@
 
-from two_sum2 import get_two_sum
+from twoSum2 import get_two_sum
 
 def test_get_two_sum():
 	nums = [1]
