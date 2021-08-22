@@ -11,15 +11,23 @@ def get_two_sum(nums, target):
             if nums[x] + nums[y] == target:
                 return [x, y]
     '''
-    # set 
-    set_nums = set(nums)
-    for x in nums:
-        if target - x in set_nums:
-            x_index = get_index(nums, x)
-            y_index = get_index(nums, target - x, x_index)
-            return [x_index, y_index]
+    # hash table
+    hash_table = {}
+    # nums value is equals hash table value
+    for x in range(0, len(nums)):
+        hash_table[x] = nums[x]
 
-def get_index(nums, x, exclude_index=None):
-    for index in range(0, len(nums)):
-        if nums[index] == x and index != exclude_index:
-            return index
+    print(target)
+    print(hash_table)
+    for x in hash_table:
+
+        print(x, hash_table[x], target - hash_table[x])
+        if target - hash_table[x] in hash_table.values():
+            print(list(hash_table.values()).index(target - hash_table[x]))
+
+            return [x, list(hash_table.values()).index(target - hash_table[x])]
+        '''
+        if (target - x) in hash_table and (hash_table[target - x]!=hash_table[x]):
+            print([hash_table[x], hash_table[target-x]])
+            return [hash_table[x], hash_table[target-x]]
+        '''
