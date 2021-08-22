@@ -15,14 +15,21 @@ def get_two_sum(nums, target):
     # list method by using hasing
     # Runtime: 640 ms, faster than 37.63% of Python3 online submissions for Two Sum.
     # Memory Usage: 14.7 MB, less than 98.26% of Python3 online submissions for Two Sum.
-    
+    '''
     for x in range(0, len(nums)):
         print(nums[x + 1:])
         if target - nums[x] in nums[x+1:]:
             y_index = find_index(nums, target - nums[x], x)
             return [x, y_index]
-
+    '''
     
+    # reduce list method time complexity 
+    # Runtime: 640 ms, faster than 37.63% of Python3 online submissions for Two Sum.
+    # Memory Usage: 14.9 MB, less than 65.62% of Python3 online submissions for Two Sum.
+    for x in range(0, len(nums)):
+        if target - nums[x] in nums[x+1:]:
+            y_index = nums[x+1:].index(target - nums[x]) + x + 1
+            return [x, y_index]
 
 def find_index(nums, value, exclude_index):
     # find index exclude index
