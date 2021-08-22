@@ -12,6 +12,9 @@ def get_two_sum(nums, target):
                 return [x, y]
     '''
 
+    # list method by using hasing
+    # Runtime: 640 ms, faster than 37.63% of Python3 online submissions for Two Sum.
+    # Memory Usage: 14.7 MB, less than 98.26% of Python3 online submissions for Two Sum.
     for x in range(0, len(nums)):
         print(nums[x + 1:])
         if target - nums[x] in nums[x+1:]:
