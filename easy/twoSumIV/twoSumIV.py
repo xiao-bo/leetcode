@@ -1,54 +1,76 @@
-class TreeNode:
+class TreeNode(object):
     def __init__(self, val=None, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
 
-class BinarySearchTree:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, val):
-        if self.root == None:
-            self.root = TreeNode(val)
-        else:
-            self._insert(val, self.root)
-
-    def _insert(self, val, current_node):
-        if val < current_node.val:
-            if current_node.left == None:
-                current_node.left = TreeNode(val)
+def bst_insert(root, node):
+    
+    if root.val is None:
+        root = node
+    elif node.val is None:
+    
+        return True
+    else:
+        if root.val > node.val:
+            if root.left is None:
+                root.left = node
             else:
-                self._insert(val, current_node.left)
-
-        elif val > current_node.val:
-            if current_node.right == None:
-                current_node.right = TreeNode(val)
+                bst_insert(root.left, node)
+        elif root.val < node.val:
+            if root.right is None:
+                root.right = node
             else:
-                self._insert(val, current_node.right)
-
-        else:
-            print('this value is existed')
-
-    def print_tree(self):
-        if self.root != None:
-            self._print_tree(self.root)
-
-    def _print_tree(self, cur_node):
-        if cur_node != None:
-            self._print_tree(cur_node.left)
-            print(str(cur_node.val))
-            self._print_tree(cur_node.right)
+                bst_insert(root.right, node)
 
 
-def findTarget(nums, target):
-    bst = BinarySearchTree()
-    for x in range(0, len(nums)):
-        bst.insert(nums[x])
+def print_tree(root):
+    if root != None:
+        print(root.val)
+        print_tree(root.left)
+        print_tree(root.right)
 
-    bst.print_tree()
+
+# First Method
+# Runtime: 227 ms, faster than 5.09% of Python3
+# online submissions for Two Sum IV - Input is a BST.
+# Memory Usage: 17.2 MB, less than 70.68% of Python3 
+# online submissions for Two Sum IV - Input is a BST.
+def traversalTree(root, target, hash_table):
+    if root is None:
+        return False
+    print(f'root.val = {root.val}, target = {target}')
+
+    if root.val in hash_table:
+        return True
+    else:
+        hash_table.append(target - root.val)
+        print(hash_table)
+        return traversalTree(root.left, target, hash_table) or \
+               traversalTree(root.right, target, hash_table)
+
+    return False
 
 
-nums = [5, 3, 6, 2, 4, 1, 7]
-findTarget(nums, 9)
+def findTarget(root, target):
+    #print_tree(root)
+
+    hash_table = []
+    result = traversalTree(root, target, hash_table)
+
+
+
+    return result
+    
+    
+nums = [5,3,6,2,4,None,7]
+bst = TreeNode(nums[0])
+for x in range(1, len(nums)):
+    #print(f'current = {nums[x]}')
+    bst_insert(bst, TreeNode(nums[x]))
+
+result = findTarget(bst, 9)
+print(result)
+#nums = [2,1,3, None]
+#print(findTarget(nums, 4))
