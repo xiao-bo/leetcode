@@ -15,14 +15,18 @@ class Solution:
         # method 2 using hash table
         # Runtime: 64 ms, faster than 22.62% of Python3 online submissions for Intersection of Two Arrays.
         # Memory Usage: 14.2 MB, less than 91.32% of Python3 online submissions for Intersection of Two Arrays.
+        '''
         result = set()
         for x in nums1:
             if x in nums2:
                 result.add(x)
                 nums2.remove(x)
         result = list(result)
-
-        #         
+        '''
+        # method 3 using list comprehensions
+        # Runtime: 52 ms, faster than 38.02% of Python3 online submissions for Intersection of Two Arrays.
+        # Memory Usage: 14.3 MB, less than 74.75% of Python3 online submissions for Intersection of Two Arrays.  
+        result = list(set([x for x in nums1 if x in nums2]))
         return result
         
 
