@@ -26,7 +26,25 @@ class Solution:
         # method 3 using list comprehensions
         # Runtime: 52 ms, faster than 38.02% of Python3 online submissions for Intersection of Two Arrays.
         # Memory Usage: 14.3 MB, less than 74.75% of Python3 online submissions for Intersection of Two Arrays.  
-        result = list(set([x for x in nums1 if x in nums2]))
+        # result = list(set([x for x in nums1 if x in nums2]))
+
+        # method 4 improve method2 
+        # Runtime: 56 ms, faster than 33.52% of Python3 online submissions for Intersection of Two Arrays.
+        # Memory Usage: 14.3 MB, less than 91.32% of Python3 online submissions for Intersection of Two Arrays.
+        if len(nums1) > len(nums2):
+            small_list = nums2
+            large_list = nums1
+        else:
+            small_list = nums1
+            large_list = nums2
+
+        result = set()
+        for x in small_list:
+            if x in large_list:
+                result.add(x)
+                large_list.remove(x)
+        result = list(result)
+
         return result
         
 
