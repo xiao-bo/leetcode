@@ -34,9 +34,9 @@ def print_tree(root):
 
 # First Method
 # Runtime: 227 ms, faster than 5.09% of Python3
-# online submissions for Two Sum IV - Input is a BST.
 # Memory Usage: 17.2 MB, less than 70.68% of Python3 
 # online submissions for Two Sum IV - Input is a BST.
+
 def traversalTree(root, target, hash_table):
     if root is None:
         return False
@@ -52,15 +52,26 @@ def traversalTree(root, target, hash_table):
 
     return False
 
+# second method\
+# using inorder sort
+def traversalTree2(root, target):
+    pass
+
+
 
 def findTarget(root, target):
     #print_tree(root)
 
     hash_table = []
-    result = traversalTree(root, target, hash_table)
-
-
-
+    #result = traversalTree(root, target, hash_table)
+    result = False
+    while root is not None
+        result = traversalTree2(root.right, target - root.val) or \
+                 traversalTree2(root.left, target - root.val)
+        if result :
+            break
+        else:
+            root = root.right 
     return result
     
     
