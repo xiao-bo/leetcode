@@ -2,7 +2,18 @@ from typing import List
 
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        return [1]
+        if (not nums1) or (not nums2):
+            # check null 
+            return False
+
+        # method 1 using built-in function. 
+        # Runtime: 48 ms, faster than 55.21% of Python3 online submissions for Intersection of Two Arrays.
+        # Memory Usage: 14.5 MB, less than 46.88% of Python3 online submissions for Intersection of Two Arrays.
+        result = list(set(nums1).intersection(set(nums2)))
+
+
+        return result
+        
 
 
 def main():
