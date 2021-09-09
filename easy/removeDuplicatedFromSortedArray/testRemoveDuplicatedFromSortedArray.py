@@ -35,6 +35,9 @@ def test_solution():
 
     nums = [0,0,0,0,0,1,2,2,3,3,4,4]
     expected_result = [0,1,2,3,4]
+    expected_k = 5
+    res_k, res_nums = s.removeDuplicates(nums)
+
     assert res_k == expected_k
     for i in range(0,res_k):
         assert res_nums[i] == expected_result[i]
