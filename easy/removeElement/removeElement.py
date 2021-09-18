@@ -1,5 +1,7 @@
 from typing import List
 
+# Problem link https://leetcode.com/problems/remove-element/solution/
+
 class Solution:
 
     # method 1 using two index and be careful edge case
