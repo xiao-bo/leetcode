@@ -39,6 +39,8 @@ class Solution:
     '''
     '''
     # method 2 offical solution
+    # Runtime: 53 ms, faster than 11.60% of Python3 online submissions for Remove Element.
+    # Memory Usage: 14.3 MB, less than 15.51% of Python3 online submissions for Remove Element.
     def removeElement(self, nums: List[int], val: int) -> int:
         
         i = 0
@@ -52,6 +54,8 @@ class Solution:
         return (i, nums[:i])
     '''
     # method 3 improve method 1 by offical solution
+    # Runtime: 41 ms, faster than 22.44% of Python3 online submissions for Remove Element.
+    # Memory Usage: 14.2 MB, less than 47.72% of Python3 online submissions for Remove Element.
     def removeElement(self, nums: List[int], val: int) -> int:
         head = 0 
         tail = len(nums)  
