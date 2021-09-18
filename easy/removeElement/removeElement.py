@@ -2,10 +2,12 @@ from typing import List
 
 class Solution:
 
-    # method 1 
+    # method 1 using two index and be careful edge case
     # Runtime: 36 ms, faster than 53.11% of Python3 online submissions for Remove Element.
     # Memory Usage: 14.1 MB, less than 92.12% of Python3 online submissions for Remove Element.
+    '''
     def removeElement(self, nums: List[int], val: int) -> int:
+        
         count_of_remove_element = 0 
         head = 0 # head index
         tail = len(nums) - 1  # tail index
@@ -34,3 +36,17 @@ class Solution:
               f'{nums[:-count_of_remove_element]}')
         #print(nums[:-count_of_remove_element-1])
         return (len(nums) - count_of_remove_element, nums[:-count_of_remove_element])
+    '''
+    # method 2 offical solution
+    def removeElement(self, nums: List[int], val: int) -> int:
+        
+        i = 0
+        j = 0
+
+        while j < len(nums):
+            if nums[j] != val:
+                nums[i] = nums[j]
+                i = i + 1
+            j = j + 1
+        return (i, nums[:i])
+        
