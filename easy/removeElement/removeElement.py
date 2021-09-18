@@ -37,6 +37,7 @@ class Solution:
         #print(nums[:-count_of_remove_element-1])
         return (len(nums) - count_of_remove_element, nums[:-count_of_remove_element])
     '''
+    '''
     # method 2 offical solution
     def removeElement(self, nums: List[int], val: int) -> int:
         
@@ -49,4 +50,17 @@ class Solution:
                 i = i + 1
             j = j + 1
         return (i, nums[:i])
+    '''
+    # method 3 improve method 1 by offical solution
+    def removeElement(self, nums: List[int], val: int) -> int:
+        head = 0 
+        tail = len(nums)  
+        while head < tail:
+            if nums[head] == val:
+                nums[head] = nums[tail - 1]
+                tail = tail - 1 
+            else:
+                head = head + 1
+
+        return (tail, nums[:tail])
         
