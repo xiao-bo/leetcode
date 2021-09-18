@@ -8,7 +8,6 @@ def test_removeElement():
     s = Solution()
     res_val, res_nums = s.removeElement(nums, val)
     nums.sort()
-    expected_nums = []
     assert res_val == len(expected_result)
     for i in range(0, res_val):
         assert res_nums[i] == expected_result[i]
@@ -17,6 +16,15 @@ def test_removeElement():
     val = 2
     expected_result = [0,0,1,4,3]
     nums.sort()
+    res_val, res_nums = s.removeElement(nums, val)
+    assert res_val == len(expected_result)
+    for i in range(0, res_val):
+        assert res_nums[i] == expected_result[i]
+        print(i)
+
+    nums = [0,1,2,2,3,3,4,4]
+    val = 4
+    expected_result = [0,1,2,2,3,3]
     res_val, res_nums = s.removeElement(nums, val)
     assert res_val == len(expected_result)
     for i in range(0, res_val):
@@ -37,7 +45,7 @@ def test_removeElement():
     expected_result = []
     nums.sort()
     res_val, res_nums = s.removeElement(nums, val)
-    assert res_val == len(expected_result)
+    assert res_val == 0
     for i in range(0, res_val):
         assert res_nums[i] == expected_result[i]
 
@@ -46,7 +54,7 @@ def test_removeElement():
     expected_result = []
     nums.sort()
     res_val, res_nums = s.removeElement(nums, val)
-    assert res_val == len(expected_result)
+    assert res_val == 0
     for i in range(0, res_val):
         assert res_nums[i] == expected_result[i]
 
