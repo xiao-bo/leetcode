@@ -55,7 +55,7 @@ class Solution:
             j = j + 1
         return (i, nums[:i])
     '''
-    # method 3 improve method 1 by offical solution
+    # method 3 reduce method 1 code by offical solution
     # Runtime: 41 ms, faster than 22.44% of Python3 online submissions for Remove Element.
     # Memory Usage: 14.2 MB, less than 47.72% of Python3 online submissions for Remove Element.
     def removeElement(self, nums: List[int], val: int) -> int:
