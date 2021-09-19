@@ -41,3 +41,9 @@ def test_soultion():
     expected_result = 6
     result = s.maxSubArray(nums)
     assert expected_result == result
+
+
+    nums = [3,2,1]
+    expected_result = 6
+    result = s.maxSubArray(nums)
+    assert expected_result == result
