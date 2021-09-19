@@ -2,7 +2,7 @@ from typing import List
 
 class Solution:
     
-    # method1 極慢，傷心
+    # method1 極慢，傷心，應該是sum太多次重複的欄位了
     # Runtime: 1624 ms, faster than 5.05% of Python3 online submissions for Maximum Subarray.
     # Memory Usage: 15 MB, less than 85.27% of Python3 online submissions for Maximum Subarray.
     def maxSubArray(self, nums: List[int]) -> int:
@@ -19,6 +19,9 @@ class Solution:
                 head = tail
 
             if currentSum < nums[tail]:
+                # currentSum = head + head+1 + ... tail
+                # if currentSum < nums[tail] then currentSum is negative 
+                # so head is change to tail
                 head = tail
             else:
                 tail = tail + 1
