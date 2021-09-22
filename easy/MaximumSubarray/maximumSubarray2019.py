@@ -4,11 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        maxSub = nums[0]
-        sumSub = nums[0]
-        sumTmp = nums[0]
         sumArray =[]
-        diff = nums[0]
         
         if len(nums) == 0:
             return 0
