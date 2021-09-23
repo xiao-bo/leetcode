@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
 
-    # method1 using two pointer
+    # method 1 using two pointer time complexity = O(n)
     # Runtime: 1144 ms, faster than 38.06% of Python3 online submissions for Best Time to Buy and Sell Stock.
     # Memory Usage: 25 MB, less than 95.38% of Python3 online submissions for Best Time to Buy and Sell Stock.
     def maxProfit(self, prices: List[int]) -> int:
@@ -12,6 +12,7 @@ class Solution:
             return 0
         if not prices:
             return 0
+
         low = 0 
         high = 1
         max_profit = 0
