@@ -3,7 +3,7 @@ from containerwithMostWater import Solution
 
 def test_solution():
     s = Solution()
-
+    
     # case1
     height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
 
@@ -39,7 +39,7 @@ def test_solution():
     expected_result = 2
 
     assert result == expected_result
-
+    
     # case6
     height = [1, 100, 100, 1, 1, 1, 1, 1]
     result = s.maxArea(height)
