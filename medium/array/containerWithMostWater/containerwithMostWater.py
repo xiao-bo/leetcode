@@ -7,7 +7,7 @@ class Solution:
         max_water = 0 
         for x in range(0, len(height)):
             for y in range(x+1, len(height)):
-                current_water = min(height[x], height[y]) * (y - x)
+                current_water = self.find_current_water(height, x, y)
                 max_water = max(current_water, max_water)
 
         return max_water
@@ -15,7 +15,7 @@ class Solution:
         # method2,  head and tail pointer
         # Runtime: 1218 ms, faster than 9.44% of Python3 online submissions for Container With Most max_water.
         # Memory Usage: 27.7 MB, less than 22.84% of Python3 online submissions for Container With Most max_water.
-
+        '''
         head = 0 
         tail = len(height) - 1 
         max_water = 0 
@@ -33,14 +33,14 @@ class Solution:
         
 
         return max_water
-
+        '''
         '''
         method 3, improve brute method
         '''
         max_water = 0 
         for x in range(0, len(height)):
             for y in range(x+1, len(height)):
-                current_water = min(height[x], height[y]) * (y - x)
+                current_water = self.find_current_water(height, x, y)
                 max_water = max(current_water, max_water)
 
         return max_water
