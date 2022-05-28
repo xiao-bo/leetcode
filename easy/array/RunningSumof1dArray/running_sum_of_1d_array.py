@@ -28,10 +28,8 @@ class Solution:
         # Memory Usage: 14.1 MB, less than 74.15% of Python3 online submissions for Running Sum of 1d Array.
         ret = []
         ret.append(nums[0])
-        
+
         for index in range(1, len(nums)):
             ret.append(ret[index-1] + nums[index])
 
         return ret
-
-
