@@ -9,11 +9,12 @@ class Solution:
         # Runtime: 40 ms, faster than 99.88% of Python3 online submissions for Flipping an Image.
         # Memory Usage: 13.8 MB, less than 65.23% of Python3 online submissions for Flipping an Image.
 
-        # flip stage 
+        image = self.__flip_stage(image)
+        image = self.__invert_stage(image)
 
-        # I put it before loop because image is square,
-        # so length of row of image is same
-        # therefore put it before loop will reduce unuseful declare time
+        return image
+
+    def __flip_stage(self, image):
         length = len(image[0]) 
 
         for row in image:
@@ -25,9 +26,11 @@ class Solution:
                 # swap 
                 row[index], row[length-index-1] = \
                     row[length-index-1], row[index]
+        return image
 
+    def __invert_stage(self, image):
         # invert stage
-
+        length = len(image[0]) 
         for row in image:
             for index in range(0, length):
                 if row[index] == 1:
