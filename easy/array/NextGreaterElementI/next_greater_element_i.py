@@ -17,8 +17,6 @@ class Solution:
                     continue
 
                 elif nums1[n1_index] == nums2[n2_index]:
-                    
-
                     # 假如找到一樣的值，就塞入nums2 index 後面最大的值
                     for k in range(1, len(nums2)-n2_index):
                         
@@ -27,6 +25,7 @@ class Solution:
                             
                             ret.append(next_greater)
                             break
+                # 假如找到最後，next_grater跟原本的一樣，代表沒有找到更大的值    
                 if next_greater == nums2[n2_index]:
                     
                     ret.append(-1)
