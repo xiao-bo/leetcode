@@ -30,7 +30,37 @@ class Solution:
                     
                     ret.append(-1)
                 break
-       
-       
+        
+        # 暴力法想的太複雜
+        # 暴力法第二版 time complexity is O(n*m)
+        # Runtime: 427 ms, faster than 5.01% of Python3 online submissions for Next Greater Element I.
+        # Memory Usage: 14.2 MB, less than 14.09% of Python3 online submissions for Next Greater Element I.
+
+        ret = []
+        find = False
+        for n1_index in range(0, len(nums1)):
+            # same flag is True, means find same value in nums2 
+            same_flag = False
+
+            # find means we find next greater element 
+            find = False
+
+            for n2_index in range(0, len(nums2)):
+
+                if same_flag == False and nums1[n1_index] != nums2[n2_index]:
+                    # it has not find same value
+                    continue
+                elif nums1[n1_index] == nums2[n2_index]:
+                    # it find same value 
+                    same_flag = True
+
+                if same_flag == True and nums1[n1_index] < nums2[n2_index] :
+                    # find same value and greater value
+                    ret.append(nums2[n2_index])
+                    find = True
+                    break
+
+            if not find :
+                ret.append(-1)
 
         return ret
