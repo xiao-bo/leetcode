@@ -14,7 +14,7 @@ class Solution:
         
         # Runtime: 305 ms, faster than 29.63% of Python3 online submissions for Number of Laser Beams in a Bank.
         # Memory Usage: 16.1 MB, less than 48.35% of Python3 online submissions for Number of Laser Beams in a Bank.
-        
+        '''
         count_of_1_of_row = \
             self.__calculate_count_of_1_each_row(bank)
         
@@ -22,7 +22,16 @@ class Solution:
             self.__calculate_number_of_beams(count_of_1_of_row)
         
         return number_of_beams
+        '''
+        # imporve math method by count 1 
+        #count
 
+        count_of_1_of_row = \
+            self.__calculate_count_of_1_each_row_2(bank)
+        number_of_beams = \
+            self.__calculate_number_of_beams(count_of_1_of_row)
+        
+        return number_of_beams
 
 
     def __calculate_count_of_1_each_row(self, bank):
@@ -50,4 +59,16 @@ class Solution:
 
 
     def __calculate_count_of_1_each_row_2(self, bank):
-        
+      
+        count_of_1_of_row = []
+        for row in bank:
+            tmp = 0
+            row = row.replace('0','')
+            if row:
+                count_of_1_of_row.append(len(row))
+        return count_of_1_of_row
+
+
+
+
+
