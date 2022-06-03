@@ -23,8 +23,9 @@ class Solution:
         
         return number_of_beams
         '''
-        # imporve math method by count 1 
-        #count
+        # imporve math method by optimize calculate count 1 
+        # Runtime: 104 ms, faster than 75.92% of Python3 online submissions for Number of Laser Beams in a Bank.
+        # Memory Usage: 16 MB, less than 48.35% of Python3 online submissions for Number of Laser Beams in a Bank.
 
         count_of_1_of_row = \
             self.__calculate_count_of_1_each_row_2(bank)
