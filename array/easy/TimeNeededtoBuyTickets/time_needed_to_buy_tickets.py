@@ -30,6 +30,7 @@ class Solution:
         ## improve brute method 
         # Runtime: 136 ms, faster than 5.80% of Python3 online submissions for Time Needed to Buy Tickets.
         # Memory Usage: 13.9 MB, less than 16.02% of Python3 online submissions for Time Needed to Buy Tickets.
+        
         second = 0
         index = 0
         len_queue = len(tickets)
@@ -46,3 +47,5 @@ class Solution:
             q.append(current)
 
         return second
+
+        
