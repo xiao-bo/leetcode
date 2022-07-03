@@ -1,9 +1,10 @@
 from n_ary_tree_preorder_traversal import (Preorder, Node)
+from n_ary_tree_postorder_traversal import (Postorder, Node)
+
 
 class TestSolution(object):
 
     def setup(self):
-        self.preorder = Preorder()
         self.root1 = self._prepare_dataset_1()
         self.root2 = self._prepare_dataset_2()
 
@@ -23,8 +24,8 @@ class TestSolution(object):
 
     def _prepare_dataset_2(self):
         values = [1, None, 2, 3, 4, 5, None, None, 6, 7, None, 8, None,
-                9, 10, None, None, 11, None, 12, None, 13, None, None, 14]
-        
+                  9, 10, None, None, 11, None, 12, None, 13, None, None, 14]
+
         node14 = Node(14)
         node13 = Node(13)
         node12 = Node(12)
@@ -42,7 +43,7 @@ class TestSolution(object):
         return root
 
     def test_preorder(self):
-
+        self.preorder = Preorder()
         root = self._prepare_dataset_1()
         ret = self.preorder.get_preorder(self.root1)
 
@@ -52,3 +53,16 @@ class TestSolution(object):
         ret = self.preorder.get_preorder(self.root2)
 
         assert ret == [1, 2, 3, 6, 7, 11, 14, 4, 8, 12, 5, 9, 13, 10]
+
+    def test_postorder(self):
+        self.postorder = Postorder()
+
+        root = self._prepare_dataset_1()
+        ret = self.postorder.get_postorder(self.root1)
+
+        assert ret == [5, 6, 3, 2, 4, 1]
+
+        root = self._prepare_dataset_2()
+        ret = self.postorder.get_postorder(self.root2)
+
+        assert ret == [2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1]
