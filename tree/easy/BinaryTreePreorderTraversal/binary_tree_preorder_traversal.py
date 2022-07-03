@@ -15,6 +15,9 @@ class PreorderTraversal:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         stack = []
 
+
+        '''
+        # recursion method
         if root:
             stack.append(root.val)
 
@@ -25,3 +28,28 @@ class PreorderTraversal:
                 stack.extend(self.preorderTraversal(root.right))
 
         return stack
+        '''
+
+
+        # iterative method
+        stack = [root]
+        output = [root]
+        output.pop()
+        while stack:
+            current = stack.pop()
+            if current:
+                output.append(current.val)
+                if current.right:
+                    stack.append(current.right)
+
+                if current.left:
+                    stack.append(current.left)
+            
+        return output
+
+
+
+
+
+
+
