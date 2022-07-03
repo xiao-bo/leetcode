@@ -2,11 +2,15 @@ from typing import List
 from typing import Optional
 
 # Definition for a binary tree node.
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
     def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
         # Runtime: 56 ms, faster than 26.63% of Python3 online submissions for Univalued Binary Tree.
