@@ -13,12 +13,12 @@ class Postorder:
         # Runtime: 50 ms, faster than 91.53% of Python3 online submissions for N-ary Tree Preorder Traversal.
         # Memory Usage: 16.4 MB, less than 13.77% of Python3 online submissions for N-ary Tree Preorder Traversal.
         
-        stack = []
-        if root.children:
-            for children in root.children:
-                stack.extend(self.postorder(children))
 
+        stack = []
         if root:
+            if root.children:
+                for children in root.children:
+                    stack.extend(self.postorder(children))
             stack.append(root.val)
 
         return stack
