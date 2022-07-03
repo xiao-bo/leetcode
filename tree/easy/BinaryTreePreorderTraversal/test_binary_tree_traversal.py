@@ -1,5 +1,6 @@
 from binary_tree_preorder_traversal import PreorderTraversal, TreeNode
-from binary_tree_postorder_traversal import PostorderTraversal, TreeNode
+from binary_tree_postorder_traversal import PostorderTraversal
+from binary_tree_inorder_traversal import InorderTraversal
 
 
 class TestTraversal(object):
@@ -71,4 +72,25 @@ class TestTraversal(object):
         ret = postorder.postorderTraversal(self.root4)
 
         assert ret == [4,6,5,2,3,1]
+
+    def test_inorder(self):
+        inorder = InorderTraversal()
+
+        ret = inorder.inorderTraversal(self.root1)
+
+        assert ret == [1,3,2]
+
+        ret = inorder.inorderTraversal(self.root2)
+
+        assert ret == []
+
+        ret = inorder.inorderTraversal(self.root3)
+
+        assert ret == [1]
+
+        ret = inorder.inorderTraversal(self.root4)
+
+        assert ret == [4,2,5,6,1,3]
+
+
     
