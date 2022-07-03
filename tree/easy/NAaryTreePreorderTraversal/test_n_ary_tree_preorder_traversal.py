@@ -45,12 +45,12 @@ class TestSolution(object):
     def test_preorder(self):
         self.preorder = Preorder()
         root = self._prepare_dataset_1()
-        ret = self.preorder.get_preorder(self.root1)
+        ret = self.preorder.preorder(self.root1)
 
         assert ret == [1, 3, 5, 6, 2, 4]
 
         root = self._prepare_dataset_2()
-        ret = self.preorder.get_preorder(self.root2)
+        ret = self.preorder.preorder(self.root2)
 
         assert ret == [1, 2, 3, 6, 7, 11, 14, 4, 8, 12, 5, 9, 13, 10]
 
@@ -58,11 +58,11 @@ class TestSolution(object):
         self.postorder = Postorder()
 
         root = self._prepare_dataset_1()
-        ret = self.postorder.get_postorder(self.root1)
+        ret = self.postorder.postorder(self.root1)
 
         assert ret == [5, 6, 3, 2, 4, 1]
 
         root = self._prepare_dataset_2()
-        ret = self.postorder.get_postorder(self.root2)
+        ret = self.postorder.postorder(self.root2)
 
         assert ret == [2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1]
