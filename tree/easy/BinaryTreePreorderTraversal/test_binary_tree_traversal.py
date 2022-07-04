@@ -1,38 +1,18 @@
 from typing import List
 
-from binary_tree_preorder_traversal import PreorderTraversal, TreeNode
-from binary_tree_postorder_traversal import PostorderTraversal
-from binary_tree_inorder_traversal import InorderTraversal
-
+from BinaryTreePreorderTraversal.binary_tree_preorder_traversal import PreorderTraversal, TreeNode
+from BinaryTreePreorderTraversal.binary_tree_postorder_traversal import PostorderTraversal
+from BinaryTreePreorderTraversal.binary_tree_inorder_traversal import InorderTraversal
+from BinaryTree.build_binary_tree import binary_tree
 
 class TestTraversal(object):
 
     def setup(self):
-        self.root1 = self.binary_tree([1,None,2,3])
-        self.root2 = self.binary_tree([])
-        self.root3 = self.binary_tree([1])
-        self.root4 = self.binary_tree([1,2,3,4,5,None,None,None,None,None,6])
-        self.root5 = self.binary_tree([1,None, 2,3])
-        
-    def binary_tree(self, level_order: List) -> TreeNode:
-        if not level_order:
-            return None
-        values = iter(level_order)
-        root = TreeNode(next(values))
-        nodes_to_fill = [root]
-        try:
-            while True:
-                next_node = nodes_to_fill.pop(0)
-                new_left = next(values)
-                if new_left is not None:
-                    next_node.left = TreeNode(new_left)
-                    nodes_to_fill.append(next_node.left)
-                new_right = next(values)
-                if new_right is not None:
-                    next_node.right = TreeNode(new_right)
-                    nodes_to_fill.append(next_node.right)
-        except StopIteration:
-            return root
+        self.root1 = binary_tree([1,None,2,3])
+        self.root2 = binary_tree([])
+        self.root3 = binary_tree([1])
+        self.root4 = binary_tree([1,2,3,4,5,None,None,None,None,None,6])
+        self.root5 = binary_tree([1,None, 2,3])
 
     def test_preorder(self):
         preorder = PreorderTraversal()
