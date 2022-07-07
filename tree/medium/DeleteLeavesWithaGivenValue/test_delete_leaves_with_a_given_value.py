@@ -9,7 +9,7 @@ class TestDeleteLeavesWithaGivenValue(object):
         self.root1 = binary_tree([1, 2, 3, 2, None, 2, 4])
         self.root2 = binary_tree([1, 3, 3, 3, 2])
         self.root3 = binary_tree([1, 2, None, 2, None, 2])
-
+        self.root4 = binary_tree([1,1,1])
     def test_removeLeafNodes(self):
 
         s = Solution()
@@ -27,3 +27,10 @@ class TestDeleteLeavesWithaGivenValue(object):
         ret = print_tree(return_tree)
 
         assert ret == [1]
+
+        return_tree = s.removeLeafNodes(self.root4, 1)
+        ret = print_tree(return_tree)
+
+        assert ret == []
+
+
