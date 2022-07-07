@@ -8,7 +8,8 @@ class TreeNode:
         self.right = right
 class Solution:
     def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
-        
+        # Runtime: 75 ms, faster than 57.45% of Python3 online submissions for Delete Leaves With a Given Value.
+        # Memory Usage: 14.6 MB, less than 88.64% of Python3 online submissions for Delete Leaves With a Given Value.
 
         if self._remove_leaf(root, target):
             return None
