@@ -6,6 +6,7 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
+    '''
     def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
         
         self.ret = 0
@@ -22,4 +23,21 @@ class Solution:
             else:
                 self.get_sum(root.left, True)
                 self.get_sum(root.right, False)
-            
+    '''
+
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+     
+        return self.get_sum(root, False)
+
+
+    def get_sum(self, root, is_left):
+        # Runtime: 55 ms, faster than 39.56% of Python3 online submissions for Sum of Left Leaves.
+        # Memory Usage: 14.8 MB, less than 16.41% of Python3 online submissions for Sum of Left Leaves.
+        if root:
+            if is_left and root.right is None and root.left is None:
+                return root.val
+            else:
+                return self.get_sum(root.left, True)+self.get_sum(root.right, False)
+
+        else:
+            return 0
