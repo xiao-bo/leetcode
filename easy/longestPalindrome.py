@@ -1,8 +1,25 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
+        ## refactor brute method
+        #run time Beats 43.58% Memory Beats 67.52%
+        hashtable = {}
 
+        for char in s:
+            hashtable[char] = hashtable[char] + 1
+
+        ret = 0 
+        flag = 0 # 多個奇數，只有第一次不用-1，其他都要-1，所以最後補回flag = 1
+        for key, value in hashtable.items():
+            if value %2 == 0:
+                ret = ret + value 
+            else:
+                flag = 1
+                ret = ret + value - 1
+        return ret + flag
+
+        '''
         ## method1 brute method
-        #runtime Beats 6.26%, Memory Beats 67.52%
+        runtime Beats 6.26%, Memory Beats 67.52%
         flag = 0
         hashtable = {}
 
@@ -32,4 +49,4 @@ class Solution:
                 else:
                     ret = ret + value - 1
         return ret
-        
+        '''
