@@ -13,6 +13,21 @@ class TreeNode(object):
             self.right = TreeNode(val)
    
 class Solution(object):
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        # 2022 solve it by recursion method 
+        # Runtime64 ms Beats 23.37% Memory13.8 MB Beats 76%
+        if p and q:
+            if p.val == q.val:
+                return (self.isSameTree(p.right, q.right)) and \
+                    (self.isSameTree(p.left, q.left))
+            else:
+                return False
+        elif p is None and q is None :
+            return True
+        else:
+            return False
+
+    '''
     def isSameTree(self, p, q):
         """
         :type p: TreeNode
@@ -65,7 +80,7 @@ class Solution(object):
         if node.right != None:
             ans = self.printNodeByLVR(node.right,ans)
         return ans
-
+    '''
 def main():
     root = TreeNode(1)
     root.add('r','null')
