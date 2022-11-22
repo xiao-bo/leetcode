@@ -6,25 +6,25 @@ class Solution(object):
         """
 
         # 2022 rechallenge 
-        # Runtime 74 ms Beats 32.65% Memory 14.1 MB Beats 12.28%
+        # Runtime 48 ms Beats 78.35% Memory 13.9 MB
         if len(strs) == 1:
             return strs[0]
+        shortest = min([len(x) for x in strs])
 
-        min_len = self.get_min_length(strs)
         i = 0
         prefix = []
 
-        while i < min_len:
-            prefix.append(strs[0][i])
+        while i < shortest:
+            prefix = prefix + strs[0][i]
             for x in strs[1:]:
                 if prefix[i] == x[i]:
                     continue
                 else:
-                    return "".join(prefix[:i])
+                    return prefix
             i +=1
         
         
-        return "".join(prefix)
+        return prefix
 
 
         '''
