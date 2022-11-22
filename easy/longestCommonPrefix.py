@@ -5,6 +5,31 @@ class Solution(object):
         :rtype: str
         """
 
+        # 2022 rechallenge 
+        # Runtime 74 ms Beats 32.65% Memory 14.1 MB Beats 12.28%
+        if len(strs) == 1:
+            return strs[0]
+
+        min_len = self.get_min_length(strs)
+        i = 0
+        prefix = []
+
+        while i < min_len:
+            prefix.append(strs[0][i])
+            for x in strs[1:]:
+                if prefix[i] == x[i]:
+                    continue
+                else:
+                    return "".join(prefix[:i])
+            i +=1
+        
+        
+        return "".join(prefix)
+
+
+        '''
+        ## 2019
+        Runtime 24 ms Beats 87.5% Memory 11.8 MB Beats 100%
         prefix = ""
         longPrefix = ""
         if not strs:
@@ -34,6 +59,16 @@ class Solution(object):
                     flag = False
                     break
         return prefix
+        '''
+
+    def get_min_length(self, strs:List[str]):
+        min_length = float(inf)
+
+        for x in strs:
+            if len(x) < min_length:
+                min_length = len(x)
+
+        return min_length
 
 def main():
     a = Solution()
