@@ -4,6 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # 2022 rechanllenge 
+        # method1 o(n^2)
+        #Runtime 3842 ms Beats 8.5% Memory 16.6 MB Beats 84.66%
+        ret = []
+        for x in nums:
+            if x not in ret:
+                ret.append(x)
+            else:
+                ret.remove(x)
+        return ret[0]
 
 
         a = []
