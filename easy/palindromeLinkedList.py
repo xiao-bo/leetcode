@@ -10,6 +10,23 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
+        # Definition for singly-linked list.
+        # O(n) and space is O(n)
+        # Runtime 350 ms Beats 30.14% Memory 17 MB Beats 13.53%
+        nums = []
+        current = head
+        while current:
+            nums.append(current.val)
+            current = current.next
+        
+        for i in range(0, int(len(nums)/2)):
+            if nums[i] == nums[len(nums)-1-i]:
+                continue
+            else:
+                return False
+
+        return True 
+
         ## first method
         ## Runtime: 56 ms, faster than 98.70% of Python online submissions for Palindrome Linked List.
         ## Memory Usage: 32.3 MB, less than 6.90% of Python online submissions for Palindrome Linked List.
