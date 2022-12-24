@@ -95,6 +95,33 @@ class Solution(object):
             
             
         return longest
+
+
+        # 2022 solve it again
+        # Runtime61 ms Beats 93.59% Memory14.1 MB Beats 51.2%
+        # slide window
+        if len(s) < 2:
+            return len(s)
+        hash_map = []
+        max_len = 0
+        for char in s:
+            #print(f'char = {char} hash_map = {hash_map}')
+            if char not in hash_map:
+                hash_map.append(char)
+            else:
+                #print(hash_map)
+                hash_len = len(hash_map)
+                if max_len < hash_len:
+                    max_len = hash_len
+                index = hash_map.index(char)
+                # 從重複的元素，加一後，繼續找最大值
+                hash_map = hash_map[index+1:]
+                hash_map.append(char)
+                #print(f'位移後 {hash_map}')
+        hash_len = len(hash_map)
+        if max_len < hash_len:
+            max_len = hash_len
+        return max_len
         
 def main():
     a = Solution()
