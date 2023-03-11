@@ -1,3 +1,5 @@
 __pycache__
 *.un~
 backup/
+a.py
+a.txt

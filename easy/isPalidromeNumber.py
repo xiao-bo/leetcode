@@ -4,9 +4,7 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-
-        
-        
+        # method 1 string
         strx = str(x)
         ans = ''
         
@@ -15,19 +13,17 @@ class Solution(object):
                 continue
             else:
                 return False
-
-
-
         return True
-        
-        
 
-def main():
-    a = Solution()
-
-    x = -12
-    ans = a.isPalindrome(x)
-    print(ans)
-
-if __name__ == '__main__':
-    main()
+        # method2 using divider and reminder
+        # Runtime117 ms Beats 59.93% Memory14 MB Beats 16.25%
+        nums = []
+        if x < 0:
+            return False
+        while x > 0:
+            nums.append(x % 10)
+            x = int(x / 10)
+        for i in range(0, int(len(nums)/2)):
+            if nums[i] != nums[-i-1]:
+                return False
+        return True
