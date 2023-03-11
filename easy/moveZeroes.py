@@ -59,12 +59,30 @@ class Solution(object):
         ## optimal solution
         ## Runtime: 36 ms, faster than 72.20% of Python online submissions for Move Zeroes.
         ## Memory Usage: 12.7 MB, less than 67.09% of Python online submissions for Move Zeroes.
+        # zero = 0
+        # for cur in range(0,len(nums)):
+        #     if nums[cur] != 0:
+        #         nums[cur],nums[zero] = nums[zero],nums[cur]
+        #         zero = zero +1 
+        # print(nums)
+
+        # two pointer 
+        # Runtime 196 ms Beats 30.7% Memory 15.5 MB Beats 96.7%
         zero = 0
-        for cur in range(0,len(nums)):
-            if nums[cur] != 0:
-                nums[cur],nums[zero] = nums[zero],nums[cur]
-                zero = zero +1 
-        print(nums)
+        non_zero = 1
+        while zero < len(nums) and non_zero < len(nums):
+            if nums[zero] != 0:
+                zero = zero + 1
+                continue
+            if nums[non_zero] == 0:
+                non_zero = non_zero + 1
+                continue
+            if zero < non_zero:
+                nums[zero], nums[non_zero] = nums[non_zero], nums[zero]
+            else:
+                non_zero = non_zero + 1
+            
+
 def main():
     a = Solution()
     nums = [1,0,0]
