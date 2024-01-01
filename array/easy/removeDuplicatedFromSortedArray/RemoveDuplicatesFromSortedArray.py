@@ -10,7 +10,7 @@ class Solution:
         # method 1 using two index
         # Runtime: 134 ms, faster than 30.22% of Python3 online submissions for Remove Duplicates from Sorted Array.
         # Memory Usage: 15.8 MB, less than 7.08% of Python3 online submissions for Remove Duplicates from Sorted Array.
-        
+        '''
         i = 0
         remove_count = 0
         while i < len(nums):
@@ -26,18 +26,22 @@ class Solution:
             print(nums)
             
             i = i + 1
-        return (len(nums[:i]), nums[:i])
+        return len(nums[:i])
+        ''' 
+        # method2 
+        # remove duplicate element + sorted
+        # time complexity is O(nlogn)
+        duplicated_nums = 0
+        if len(nums) == 1:
+            return len(nums) - duplicated_nums
+        cur = nums[0]
+        for x in range(1, len(nums)):
+            if cur == nums[x]:
+                nums[x] = float('inf')
+                duplicated_nums = duplicated_nums + 1
+            else:
+                cur = nums[x]
 
-    
-    
-
-'''
-s = Solution()
-nums = [1, 1, 2]
-res_k, res_nums = s.removeDuplicates(nums)
-print(res_k, res_nums)
-
-nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-res_k, res_nums = s.removeDuplicates(nums)
-print(res_k, res_nums)
-'''
+        # inplace sorted
+        nums.sort()
+        return len(nums) - duplicated_nums
