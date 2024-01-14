@@ -55,6 +55,7 @@ class Solution:
             j = j + 1
         return (i, nums[:i])
     '''
+    '''
     # method 3 reduce method 1 code by offical solution
     # Runtime: 41 ms, faster than 22.44% of Python3 online submissions for Remove Element.
     # Memory Usage: 14.2 MB, less than 47.72% of Python3 online submissions for Remove Element.
@@ -69,4 +70,26 @@ class Solution:
                 head = head + 1
 
         return (tail, nums[:tail])
-        
+    ''' 
+    # method 4 
+    # use two pointer
+    # Runtime 41ms Beats 50.94% of users with Python3
+    # Memory 17.38MB Beats 15.97% of users with Python3
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i = 0
+        k = len(nums) - 1 # tail pointer
+        count = 0
+        while i <= k:
+            if nums[i] != val:
+                i = i + 1
+                count = count + 1
+            elif nums[i] == val and nums[k] != val:
+                nums[i], nums[k] = nums[k], nums[i]
+                count = count+1
+                i = i + 1
+                k = k - 1
+            elif nums[i] == val and nums[k] == val:
+                k = k - 1
+
+        return count, nums[:count]
+
