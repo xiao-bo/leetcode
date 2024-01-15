@@ -76,7 +76,53 @@ class Solution:
         nums[:] = sorted(ans[:])
         print(nums)
         return len(nums)
+
         
+    def removeDuplicates_2024(self, nums: List[int]):
+        # keep relative order
+        # sorted array in non-decreasing order
+        # duplicated at most twice
+        # in-pliace
+        
+        # method 1 
+        # using hash map to check appears at most twice
+        # and use shift to keep non-decreasing order
+        if len(nums) <= 2:
+            return len(nums)
+        hash_map = {}
+        i = 0
+        count = 0
+        while i < len(nums):
+            if nums[i] not in hash_map:
+                hash_map[nums[i]] = 1
+            elif nums[i] in hash_map and hash_map[nums[i]] < 2:
+                hash_map[nums[i]] = hash_map[nums[i]] + 1
+            elif nums[i] in hash_map and hash_map[nums[i]] >= 2:
+                nums[i] = '_'
+                count = count + 1
+
+            i = i + 1
+
+        self.shift(nums)
+            
+        return len(nums) - count
+
+    def shift(self, nums:List[int]):
+        #use shift to keep non-decreasing order
+        i = 0
+        j = 0
+        while i < len(nums) or j < len(nums):
+            
+            if nums[j] != '_':
+                j = j + 1
+            elif nums[j] == '_' :
+                i = i + 1
+            if j == len(nums) or i == len(nums):
+                break
+            if i > j and nums[j] == '_' and nums[i] != '_':
+                nums[j], nums[i] = nums[i] , nums[j]
+            
+
 
 def main():
     a = Solution()
