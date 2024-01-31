@@ -1,7 +1,8 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         # method 1 using O(n) extra space
-        # 39ms Beats 56.00% of users with Python3 Memory 16.66 MB Beats 69.74% of users with Python3
+        # rumtime 39ms Beats 56.00% of users with Python3 
+        # Memory 16.66 MB Beats 69.74% of users with Python3
         ret = []
         s_input = s.split(' ')
         
