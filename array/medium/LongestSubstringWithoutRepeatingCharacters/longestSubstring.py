@@ -122,6 +122,26 @@ class Solution(object):
         if max_len < hash_len:
             max_len = hash_len
         return max_len
+
+
+        # 2024 solve it again by two pointer
+        # Runtime 52ms Beats 77.13% of users with Python3 
+        # Memory 16.72MB Beats 58.34% of users with Python3
+        i = 0
+        if len(s) <=1:
+            return len(s)
+        k = 1
+        max_long = 1
+        tmp = s[i]
+        while k < len(s):
+            if s[k] not in tmp:
+                tmp = tmp + s[k]
+                max_long = max(len(tmp), max_long)
+                k = k + 1
+            else:
+                tmp = tmp[1:]
+                i = i + 1
+        return max_long
         
 def main():
     a = Solution()
