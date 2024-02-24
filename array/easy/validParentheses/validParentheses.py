@@ -40,7 +40,32 @@ class Solution(object):
             return '{'                
         elif c ==')':
             return '('
-                
+            
+    ## 2024 solution
+    def isValid(self, s: str) -> bool:
+        mapping = {
+            ')': '(',
+            ']': '[',
+            '}': '{'
+        }
+        left = ['(', '[', '{']
+        right = [')', ']', '}']:
+        stack = []
+
+        for c in s:
+            if c in left:
+                stack.append(c)
+            elif c in right:
+                if len(stack) == 0:
+                    return False
+
+                tail = stack.pop()
+
+                if mapping[c] == tail:
+                    continue
+                else:
+                    return False
+        return len(stack) == 0
            
 
 def main():
