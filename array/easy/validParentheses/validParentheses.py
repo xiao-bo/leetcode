@@ -1,4 +1,5 @@
 class Solution(object):
+    ## 2022 solution  
     def isValid(self, s):
         """
         :type s: str
