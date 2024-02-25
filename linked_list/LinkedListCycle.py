@@ -10,6 +10,7 @@ class Solution:
         # 2022 solution
         # Runtime 58ms Beats 14.97% of users with Python3
         # Memory 17.27MB Beats 99.99% of users with Python3
+        """
         if not head:
             return False
         cur = head
@@ -19,5 +20,18 @@ class Solution:
             else:
                 cur.val = 200000
                 cur = cur.next
+
+        return False
+        """
+        # 2024 solution by two pointer
+        # Runtime 45ms Beats 64.77% of users with Python3
+        # Memory 19.06MB Beats 83.93% of users with Python3
+        slow = fast = head
+
+        while fast != None and fast.next != None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
 
         return False
