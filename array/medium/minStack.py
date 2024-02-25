@@ -1,4 +1,5 @@
 class MinStack:
+    # 2023 solution
     # Runtime63 ms Beats 70.1% Memory18.4 MB Beats 11.87%
     def __init__(self):
         self.minstack = []
