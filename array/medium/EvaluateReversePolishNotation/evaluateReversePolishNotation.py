@@ -1,6 +1,6 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-        # stack method
+        # stack method in 2023 year
         # Runtime122 ms Beats 36.96% Memory14.5 MB Beats 18.73%
 
         if len(tokens) == 0:
@@ -10,18 +10,18 @@ class Solution:
 
         s = []
         for char in tokens:
-            if char in ['+', '-', '*', '/']:
+            if char in ["+", "-", "*", "/"]:
                 # is operator
 
                 post = int(s.pop(-1))
                 pre = int(s.pop(-1))
-                if char == '+':
+                if char == "+":
                     tmp = pre + post
-                if char == '-':
+                if char == "-":
                     tmp = pre - post
-                if char == '*':
+                if char == "*":
                     tmp = pre * post
-                if char == '/':
+                if char == "/":
                     tmp = int(pre / post)
                 s.append(tmp)
             else:
