@@ -7,6 +7,17 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
+        # 2019 solution
+        # Runtime: 44 ms, faster than 32.86% of Python online submissions for Linked List Cycle.
+        # Memory Usage: 18.7 MB, less than 13.48% of Python online submissions for Linked List Cycle.
+        """
+        past = set()
+        while head!= None:
+            if head in past:
+                return True
+            past.add(head)
+            head = head.next
+        """
         # 2022 solution
         # Runtime 58ms Beats 14.97% of users with Python3
         # Memory 17.27MB Beats 99.99% of users with Python3
