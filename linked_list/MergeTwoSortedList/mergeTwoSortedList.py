@@ -1,15 +1,16 @@
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
-         self.val = x
-         self.next = None
-    
+        self.val = x
+        self.next = None
+
     def printAllNode(self):
         node = self
         while node != None:
             print(node.val)
             node = node.next
-    
+
+
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
         """
@@ -17,9 +18,9 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        
+        # 2020 solution
         head = ListNode(0)
-        tmp = head 
+        tmp = head
         if l1 == None:
             return l2
         elif l2 == None:
@@ -41,7 +42,8 @@ class Solution(object):
                 l2 = l2.next
             tmp = tmp.next
         return head.next
-        
+
+
 def main():
     a = Solution()
     node1 = ListNode(1)
@@ -57,16 +59,15 @@ def main():
     node4.next = node5
     node5.next = node6
 
-    
-    
-    head = a.mergeTwoLists(node1,node4)
+    head = a.mergeTwoLists(node1, node4)
     head.printAllNode()
-    
+
     while head is not None:
-        #head.printAllNode()
+        # head.printAllNode()
         head = head.next
 
-    #print(l2.val)
+    # print(l2.val)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
