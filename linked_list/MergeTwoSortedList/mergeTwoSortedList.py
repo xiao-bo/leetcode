@@ -12,7 +12,7 @@ class ListNode(object):
 
 
 class Solution(object):
-    def mergeTwoLists(self, l1, l2):
+    def mergeTwoLists_2020(self, l1, l2):
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -43,6 +43,23 @@ class Solution(object):
             tmp = tmp.next
         return head.next
 
+    def mergeTwoLists_2024(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        head = cur = ListNode()
+
+        while list1 and list2:
+            if list1.val > list2.val:
+                cur.next = list2
+                list2 = list2.next
+            elif list1.val <= list2.val:
+                cur.next = list1
+                list1 = list1.next
+            cur = cur.next
+        if list1:
+            cur.next = list1
+        elif list2:
+            cur.next = list2
+        return head.next
+
 
 def main():
     a = Solution()
@@ -59,7 +76,7 @@ def main():
     node4.next = node5
     node5.next = node6
 
-    head = a.mergeTwoLists(node1, node4)
+    head = a.mergeTwoLists_2020(node1, node4)
     head.printAllNode()
 
     while head is not None:
