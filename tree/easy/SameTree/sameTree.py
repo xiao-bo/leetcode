@@ -6,16 +6,18 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-    def add(self,arrow,val):
+    def add(self, arrow, val):
         if arrow == 'l':
             self.left = TreeNode(val)
         elif arrow == 'r':
             self.right = TreeNode(val)
-   
+
+
 class Solution(object):
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        # 2022 solve it by recursion method 
+        # 2022 solve it by recursion method
         # Runtime64 ms Beats 23.37% Memory13.8 MB Beats 76%
+        '''
         if p and q:
             if p.val == q.val:
                 return (self.isSameTree(p.right, q.right)) and \
@@ -24,6 +26,21 @@ class Solution(object):
                 return False
         elif p is None and q is None :
             return True
+        else:
+            return False
+        '''
+        # 2024 solve it by recursion method
+        # Runtime 43ms Beats 7.94% of users with Python3
+        # Memory 16.63MB Beats 12.20% of users with Python3
+        if p is None and q is None:
+            return True
+        elif p is not None and q is None:
+            return False
+        elif p is None and q is not None:
+            return False
+
+        if p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         else:
             return False
 
@@ -81,19 +98,21 @@ class Solution(object):
             ans = self.printNodeByLVR(node.right,ans)
         return ans
     '''
+
+
 def main():
     root = TreeNode(1)
-    root.add('r','null')
-    root.add('l',2)
-    
+    root.add('r', 'null')
+    root.add('l', 2)
 
     root2 = TreeNode(1)
-    root2.add('l',2)
-    #root3 = TreeNode([])
+    root2.add('l', 2)
+    # root3 = TreeNode([])
 
     a = Solution()
-    ans = a.isSameTree(root,root2)
+    ans = a.isSameTree(root, root2)
     print(ans)
+
 
 if __name__ == '__main__':
     main()
